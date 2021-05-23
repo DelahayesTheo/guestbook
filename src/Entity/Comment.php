@@ -43,6 +43,12 @@ class Comment
      */
     private $conference;
 
+
+    public function __toString(): string
+    {
+        return (string) $this->getEmail();
+    }
+
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
