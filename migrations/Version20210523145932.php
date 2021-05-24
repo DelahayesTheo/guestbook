@@ -19,6 +19,12 @@ final class Version20210523145932 extends AbstractMigration
 
     public function up(Schema $schema): void
     {
+        $this->addSql('CREATE TABLE sessions (
+            sess_id VARCHAR(128) NOT NULL PRIMARY KEY,
+            sess_data BYTEA NOT NULL,
+            sess_lifetime INTEGER NOT NULL,
+            sess_time INTEGER NOT NULL
+        )');
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE SEQUENCE comment_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
         $this->addSql('CREATE SEQUENCE conference_id_seq INCREMENT BY 1 MINVALUE 1 START 1');
